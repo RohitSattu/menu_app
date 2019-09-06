@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import Menu from './components/Menu';
-
+import {Header, Segment} from 'semantic-ui-react'
 
 class App extends Component {
   state = {
@@ -15,14 +15,14 @@ class App extends Component {
   render() {
     return (
       <div style={{padding: '65px'}}>
-        <h2 className="ui top attached header">Sandwich</h2>
-        <div className="ui attached segment">
+        <Header as='h2' attached='top'>Sandwich</Header>
+        <Segment attached>
         <Menu products={this.state.products} category="sandwich"/>
-        </div>
-        <h2 className="ui top attached header">Biscuit</h2>
-        <div className="ui attached segment">
+        </Segment>
+        <Header as='h2' attached='top'>Biscuit</Header>
+        <Segment attached>
         <Menu products={this.state.products} category="biscuit"/>
-        </div>
+        </Segment>
       </div>
     )
   }
