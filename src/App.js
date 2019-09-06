@@ -1,26 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {Component} from 'react';
+import Menu from './components/Menu';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+class App extends Component {
+  state = {
+    products: []
+  }
+  componentDidMount() {
+    fetch('//localhost:5001/products')
+      .then((res) => res.json())
+      .then((data) => this.setState({products: data}))
+  }
+
+  render() {
+    return (
+      <div style={{padding: '65px'}}>
+        <h2 className="ui top attached header">Sandwich</h2>
+        <div className="ui attached segment">
+        <Menu products={this.state.products} category="sandwich"/>
+        </div>
+        <h2 className="ui top attached header">Biscuit</h2>
+        <div className="ui attached segment">
+        <Menu products={this.state.products} category="biscuit"/>
+        </div>
+      </div>
+    )
+  }
 }
 
 export default App;
