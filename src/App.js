@@ -1,29 +1,28 @@
 import React, {Component} from 'react';
-import Menu from './components/Menu';
-import {Header, Segment} from 'semantic-ui-react'
+import MenuPage from './components/MenuPage';
+
 
 class App extends Component {
   state = {
-    products: []
+    products: [],
+    cart: []
   }
   componentDidMount() {
     fetch('//localhost:5001/products')
       .then((res) => res.json())
       .then((data) => this.setState({products: data}))
   }
-
+  onAddToCart = (product_id) => {
+    this.setState((prevState, {cart}) => ({
+        counter: prevState.cart.push(product_id)
+    }))
+}
   render() {
     return (
-      <div style={{padding: '65px'}}>
-        <Header as='h2' attached='top'>Sandwich</Header>
-        <Segment attached>
-        <Menu products={this.state.products} category="sandwich"/>
-        </Segment>
-        <Header as='h2' attached='top'>Biscuit</Header>
-        <Segment attached>
-        <Menu products={this.state.products} category="biscuit"/>
-        </Segment>
-      </div>
+        <>
+        
+        <MenuPage props={this.state} onAddToCart={this.onAddToCart}/>
+        </>
     )
   }
 }

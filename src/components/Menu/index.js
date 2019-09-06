@@ -1,10 +1,14 @@
 import React, {Component} from 'react'
-import {Button, Card} from 'semantic-ui-react'
+import {Button, Card, Header, Segment} from 'semantic-ui-react'
+
 
 class Menu extends Component {
     render() {
         const {products} = this.props
         return (
+            <div style={{padding: '65px'}}>
+            <Header as='h2' attached='top'>{this.props.category}</Header>
+            <Segment attached>
             <Card.Group>
                 {products.filter((p) => p.name.toLowerCase().includes(this.props.category)).map((prod) => (
                     <Card key={prod._id}>
@@ -14,6 +18,8 @@ class Menu extends Component {
                     </Card>
                 ))}
             </Card.Group>
+            </Segment>
+            </div>
         )
     }
 }
