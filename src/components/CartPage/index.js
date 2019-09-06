@@ -12,7 +12,6 @@ class CartPage extends Component {
             return <Redirect to='/' />
         } else {
         return (
-
             <Table color="green" style={{width: '96%',margin: '2%'}}>
                 <Table.Header>
                 <Table.Row>
@@ -20,7 +19,6 @@ class CartPage extends Component {
                     <Table.HeaderCell width='six' textAlign='right'>Cost</Table.HeaderCell>
                 </Table.Row>
                 </Table.Header>
-
                 <Table.Body>
                     {cart.map((product_id) => {
                         const matched = products.filter((product) => product._id === product_id)
