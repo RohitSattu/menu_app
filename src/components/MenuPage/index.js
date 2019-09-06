@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import { Button, Table, Label, Input } from 'semantic-ui-react'
+import {Link} from 'react-router-dom'
 
 class MenuPage extends Component {
     state = {
@@ -24,7 +25,15 @@ class MenuPage extends Component {
 
     return (
         <>
-        <Input fluid icon='search' iconPosition='left' placeholder='Search...' value={query} onChange={(event) => this.updateQuery(event.target.value)}/>
+        <Input 
+            fluid 
+            icon='search' 
+            iconPosition='left' 
+            placeholder='Search...' 
+            value={query} 
+            onChange={(event) => this.updateQuery(event.target.value)} 
+            style={{height: '60px'}}
+            />
         <Table stackable selectable  style={{width: '96%',margin: '2%'}}>
             <Table.Header>
             <Table.Row>
@@ -32,12 +41,14 @@ class MenuPage extends Component {
                 <Table.HeaderCell>Cost</Table.HeaderCell>
                 <Table.HeaderCell>Type</Table.HeaderCell>
                 <Table.HeaderCell textAlign='right'>
-                    <Button as='div' labelPosition='right'>
-                    <Button color="red">Cart</Button>
-                    <Label as='a' basic color='red' pointing='left'>
-                        {cart.length}
-                    </Label>
-                    </Button>
+                    <Link to="cart">
+                        <Button as='div' labelPosition='right'>
+                        <Button color="red">Cart</Button>
+                        <Label basic color='red' pointing='left'>
+                            {cart.length}
+                        </Label>
+                        </Button>
+                    </Link>
                 </Table.HeaderCell>
             </Table.Row>
             </Table.Header>
