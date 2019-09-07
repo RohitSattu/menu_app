@@ -1,14 +1,14 @@
 import React, {Component} from 'react'
 import {Redirect, Link} from 'react-router-dom'
-import {Table, Segment} from 'semantic-ui-react'
+import {Table, Segment, Button} from 'semantic-ui-react'
 
 class CartPage extends Component {
 
-    componentDidMount() {
-        if (this.props.cart.length > 0) { 
-            window.print()
-        }
-    }
+    // componentDidMount() {
+    //     if (this.props.cart.length > 0) { 
+    //         window.print()
+    //     }
+    // }
 
     render() {
         const products = this.props.products
@@ -21,7 +21,7 @@ class CartPage extends Component {
         } else {
             return (
                 <>
-                <Link to="/" onClick={emptyCart}><Segment inverted>Newton's</Segment></Link>
+                <Link to="/" onClick={emptyCart}><Segment>Newton's Menu</Segment></Link>
                 <Table color="green" style={{width: '96%',margin: '2% 2% 0 2%'}}>
                     <Table.Header>
                     <Table.Row>
@@ -50,7 +50,7 @@ class CartPage extends Component {
                         <Table.Cell textAlign='right' positive><strong>Total</strong></Table.Cell>
                         <Table.Cell textAlign='right' positive><strong>${parseFloat(totalCost).toFixed(2)}</strong></Table.Cell>
                     </Table.Row>
-                    {/* <Table.Row className="checkouts">
+                    <Table.Row className="checkouts">
                         <Table.Cell colSpan='4'>
                         <Button
                             floated='right'
@@ -58,13 +58,13 @@ class CartPage extends Component {
                             size='small'
                             onClick={() => window.print()}
                         >
-                            Print Page
+                            Receipt
                         </Button>
-                        <Link to="/" onClick={emptyCart}>
+                        {/* <Link to="/" onClick={emptyCart}>
                         <Button size='small' color="red" floated="right" >Cancel</Button>
-                        </Link>
+                        </Link> */}
                         </Table.Cell>
-                    </Table.Row> */}
+                    </Table.Row>
                     </Table.Footer>
                 </Table>
                 </>
