@@ -34,6 +34,7 @@ class MenuPage extends Component {
             onChange={(event) => this.updateQuery(event.target.value)} 
             style={{height: '60px'}}
             />
+            
         <Table stackable selectable  style={{width: '96%',margin: '2%'}}>
             <Table.Header>
             <Table.Row>

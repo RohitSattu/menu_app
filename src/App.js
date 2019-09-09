@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import MenuPage from './components/MenuPage';
 import {Route} from 'react-router-dom'
 import CartPage from './components/CartPage'
+
 class App extends Component {
   state = {
     products: [
