@@ -9,7 +9,7 @@ class MenuPage extends Component {
 
     updateQuery = (val) => {
         this.setState((prevState, {query}) => ({
-            query: val.trim()
+            query: val
         }))
     }
 
