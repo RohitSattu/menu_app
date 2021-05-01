@@ -1,4 +1,4 @@
-items = [
+export const items = [
       {
         "_id": "5d7277dc0366d9033d5bc664",
         "name": "Jelly Sandwich",
@@ -1629,3 +1629,7 @@ items = [
         "__v": 0
       }
     ]
+
+export default {
+    items,
+}
