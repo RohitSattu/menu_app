@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import MenuPage from './components/MenuPage';
 import {Route} from 'react-router-dom'
-import {items} from './some_db.db'
+import {items} from './some_db.js'
 import CartPage from './components/CartPage'
 class App extends Component {
   state = {
